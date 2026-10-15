@@ -60,9 +60,8 @@ jobs:
         run: npm run test:visual:update --workspace @bc-forge/react
 
       - name: Commit regenerated baselines
-        shell: bash
         run: |
-          set -euo pipefail
+          set -eu
           if git diff --quiet -- react/visual/__screenshots__; then
             echo "No baseline changes to commit."
             exit 0
